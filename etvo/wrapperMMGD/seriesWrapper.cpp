@@ -60,7 +60,7 @@ namespace etvo
 
     if(!(pp==poly::Epsilon()))    str = pp.ToString()+ "+";
     str += "(" + qq.ToString() + ")";
-    if(copie.getr()!=gd(0,0) && !isDegenerate())
+    if(copie.getr()!=mmgd::gd(0,0) && !isDegenerate())
     str+=".[" + gd(copie.getr()).ToString() + "]* ";
     return str;
   }

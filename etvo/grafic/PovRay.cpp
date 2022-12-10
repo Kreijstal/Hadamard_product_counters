@@ -20,7 +20,7 @@ namespace graphicPR
 
   void  PovRay::Pov_StartEd()
   {
-    strstream & FichierPov = ss;
+    std::stringstream & FichierPov = ss;
     if (bascule == 0) bascule = 1;
     else bascule = 0;
     FichierPov << " #include \"colors.inc\" " << endl;
@@ -130,7 +130,7 @@ namespace graphicPR
 
   void  PovRay::Pov_StartTg()
   {
-	  strstream & FichierPov = ss;
+      std::stringstream & FichierPov = ss;
 	  if (bascule == 0) bascule = 1;
 	  else bascule = 0;
 	  FichierPov << " #include \"colors.inc\" " << endl;
@@ -254,7 +254,7 @@ namespace graphicPR
 
   void PovRay::FaceXY(Point pA, Point pB)
   {
-    strstream & FichierPOV = ss;
+    std::stringstream& FichierPOV = ss;
     FichierPOV << "polygon { \n";
     FichierPOV << " 4, \n";
     FichierPOV << pA.ToString() << Point(pB.x, pB.y, pA.z).ToString();
@@ -264,7 +264,7 @@ namespace graphicPR
 
   void PovRay::FaceZ(Point pA, Point pB)
   {
-    strstream & FichierPOV = ss;
+    std::stringstream & FichierPOV = ss;
     FichierPOV << "polygon { \n";
     FichierPOV << " 4, \n";
     FichierPOV << pA.ToString() << Point(pB.x, pA.y, pA.z).ToString();
@@ -273,7 +273,7 @@ namespace graphicPR
   }
   void PovRay::Box(Point pA, Point pB, Color c)
   {
-    strstream & FichierPOV = ss;
+      std::stringstream & FichierPOV = ss;
 
 
     if (bascule == 0)
@@ -304,7 +304,7 @@ namespace graphicPR
 
   void PovRay::Sphere(Point pA, float rayon, Color c)
   {
-    strstream & FichierPOV = ss;
+      std::stringstream & FichierPOV = ss;
     FichierPOV << "sphere{" << pA.ToString() << "," << rayon << endl;
     FichierPOV << " pigment{" << c.ToString() << " filter .2 transmit .1}" << endl;
     FichierPOV << " finish{ reflection .2 phong .7}}" << endl;
@@ -314,7 +314,7 @@ namespace graphicPR
   {
     if (pA.x != pB.x || pA.y != pB.y || pA.z != pB.z)
     {
-      strstream & FichierPOV = ss;
+      std::stringstream & FichierPOV = ss;
       FichierPOV << "cylinder{" << pA.ToString() << "," << pB.ToString() << "," << rayon << endl;
       //FichierPOV << " pigment{ color " << c.ToString() << "}}" << endl;
       FichierPOV << " pigment{" << c.ToString() << " filter .2 transmit .1}" << endl;

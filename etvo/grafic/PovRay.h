@@ -1,6 +1,6 @@
 #pragma once
 #include<string>
-#include<strstream>
+#include<sstream>
 
 
 /*! \namespace graphicPR
@@ -28,7 +28,7 @@ namespace graphicPR
       Point(float X = 0, float Y = 0, float Z = 0) :x(X), y(Y), z(Z) {}
       std::string ToString() const
       {
-        std::strstream sls;
+        std::stringstream sls;
         sls << "<" << x << "," << z << "," << y << ">" << '\0';
         return sls.str();
       }
@@ -42,7 +42,7 @@ namespace graphicPR
       Color(float R = 1, float G = 0, float B = 0) :r(R), g(G), b(B) {}
       std::string ToString() const
       {
-        std::strstream sls;
+        std::stringstream sls;
         sls << "rgb<" << r << "," << g << "," << b << ">" << '\0';
         return sls.str();
       }
@@ -84,7 +84,7 @@ namespace graphicPR
     int zmax;
     int ymin;
     std::string fileNamePovRay;
-    std::strstream ss;
+    std::stringstream ss;
   };
 
 }

@@ -98,10 +98,10 @@ poly::poly(const mmgd::poly & p):mmgd::poly(p)
 {
   if (size() == 1)
   {
-    if (mmgd::poly::getpol(0) == gd(global::INF, global::_INF))
+    if (mmgd::poly::getpol(0) == mmgd::gd(global::INF, global::_INF))
       setEpsilon();
     else
-      if (mmgd::poly::getpol(0) == gd(global::_INF, global::INF))
+      if (mmgd::poly::getpol(0) == mmgd::gd(global::_INF, global::INF))
         setTop();
 
   }
@@ -125,8 +125,7 @@ poly::poly(const gd& m):mmgd::poly(m)
     }
 
     if (m.getd() == global::INF)
-    {
-      if (m.getg() == global::INF)
+    {      if (m.getg() == global::INF)
       {
         mmgd::poly::getpol(0) = gd(global::INF, global::_INF);
         setEpsilon();
@@ -153,6 +152,7 @@ poly::poly(const gd& m):mmgd::poly(m)
     }
     // All other cases are considered as epsilon
     // g-inf.d-inf, gn.d-inf,g+inf.dt,g+inf.d+inf->epsilon
+   //  std::cout << "this will never execute" << std::endl;
     mmgd::poly::getpol(0) = gd(global::INF, global::_INF);
     setEpsilon();
   }
@@ -222,7 +222,8 @@ bool poly::isEpsilon() const
 
 bool poly::isE() const
 {
-  if (size() == 1 && getpol(0) == gd())
+    std::cout << "isE??" << std::endl;
+  if (size () == 1 && getpol(0) == mmgd::gd(gd()))
   {
     return true;
   }
@@ -266,7 +267,8 @@ unsigned poly::size() const
 bool poly::operator==(const poly  & p) const
 {
     mmgd::poly copie(*this);
-    return copie==(p);
+    mmgd::poly copie2(p);
+    return copie==(copie2);
 }
 
 bool poly::operator!=(const poly  & p) const
@@ -287,6 +289,7 @@ bool poly::operator>=(const poly & p) const
 }
  poly poly::operator+(const poly & p) const
  {
+     std::cout << "ayy" << std::endl;
    if (isTop() || p.isTop()) return poly::Top();
    if (isEpsilon()) return p;
    if (p.isEpsilon()) return *this;
@@ -298,7 +301,8 @@ bool poly::operator>=(const poly & p) const
 
  void poly::add(const gd & m)
  {
-   if (isEpsilon() && m != mmgd::gd())
+   std::cout << "wtf" << std::endl;
+   if (isEpsilon() && mmgd::gd(m) != mmgd::gd())
    {
      ISterm::_epsNTop = 0;
    }
