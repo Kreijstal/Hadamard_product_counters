@@ -28,7 +28,7 @@ namespace mmgd
 	/*****************************************************************************************/
 	gd* mymerge(gd * first1, gd * last1, gd * first2, gd * last2, gd * temp)
 	{
-		std::cout << "asda" << std::endl;
+		//std::cout << "asda" << std::endl;
 		while (1)
 		{
 			if (first2->getg() < first1->getg())
@@ -560,7 +560,6 @@ namespace mmgd
 		// somme de polynome, retour par valeur
 		// appel p=oplus(p1,p2); est possible car on a redefini l'operateur =
 	{
-		std::cout << "exec4as" << std::endl;
 		gd* temp;	// tableau temporaire
 		gd* adlastgd = NULL;
 		poly result;
