@@ -748,7 +748,6 @@ namespace mmgd
 	poly oplus(poly & poly1, gd & gd1)
 		// somme d'1 polynome avec un monome
 	{
-		std::cout << "oplus is being executed in etvo" << std::endl;
 		poly result(gd1);
 		poly1.simpli();
 

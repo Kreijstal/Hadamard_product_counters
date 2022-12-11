@@ -152,7 +152,6 @@ poly::poly(const gd& m):mmgd::poly(m)
     }
     // All other cases are considered as epsilon
     // g-inf.d-inf, gn.d-inf,g+inf.dt,g+inf.d+inf->epsilon
-   //  std::cout << "this will never execute" << std::endl;
     mmgd::poly::getpol(0) = gd(global::INF, global::_INF);
     setEpsilon();
   }
@@ -222,7 +221,6 @@ bool poly::isEpsilon() const
 
 bool poly::isE() const
 {
-    std::cout << "isE??" << std::endl;
   if (size () == 1 && getpol(0) == mmgd::gd(gd()))
   {
     return true;
@@ -289,7 +287,6 @@ bool poly::operator>=(const poly & p) const
 }
  poly poly::operator+(const poly & p) const
  {
-     std::cout << "ayy" << std::endl;
    if (isTop() || p.isTop()) return poly::Top();
    if (isEpsilon()) return p;
    if (p.isEpsilon()) return *this;
@@ -301,7 +298,6 @@ bool poly::operator>=(const poly & p) const
 
  void poly::add(const gd & m)
  {
-   std::cout << "wtf" << std::endl;
    if (isEpsilon() && mmgd::gd(m) != mmgd::gd())
    {
      ISterm::_epsNTop = 0;
