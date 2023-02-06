@@ -38,3 +38,7 @@ parsersEtvo.o: parsersEtvo.cpp
 
 
 # Do as follows: modify etvo.cpp and then make all
+#
+
+clean:
+	rm -f *.exe etvo.o parsersEtvo.o testsEtvo.o
