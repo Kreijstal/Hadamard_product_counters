@@ -8,7 +8,7 @@ MFTESTS = mainTestsETVO
 # compiler
 CC=g++
 # compilation options (needs C++11 at least)
-CFLAGS=-std=c++11 -Wno-deprecated
+CFLAGS=-std=c++17 -Wno-deprecated
 
 all: Examples Calculator
 Examples: IEEETAC14 WODES14 ZHOU PTEG_JDEDS
